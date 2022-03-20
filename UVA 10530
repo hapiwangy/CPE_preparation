@@ -1,4 +1,5 @@
 # language python
+# add date
 while True:
 	script = {}
 	answer = 0
