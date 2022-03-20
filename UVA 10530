@@ -1,0 +1,36 @@
+# language python
+while True:
+	script = {}
+	answer = 0
+	flags = 0
+	while True:
+		nums = int(input())
+		if nums == 0:
+			flags = 1
+			break
+		word = input()
+		script[nums] = word
+		if word == "right on":
+			answer = nums
+			break
+	if flags:
+		break
+	flag = 0
+	for keys in script:
+		if answer < keys:
+			if script[keys] == "too low":
+				flag = 1
+				break
+		elif answer > keys:
+			if script[keys] == "too high":
+				flag = 1
+				break
+		elif answer == keys:
+			if script[keys] != "right on":
+				flag = 1
+				break
+	if flag:
+		print("Stan is dishonest")
+	else:
+		print("Stan may be honest")
+		
