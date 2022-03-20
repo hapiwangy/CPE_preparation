@@ -1,0 +1,27 @@
+# UVA 1594
+# language python
+from copy import *
+nums = int(input())
+while nums > 0:
+	nums -= 1
+	length = int(input())
+	num = list(map(int, input().split()))
+	exist_l = []
+	exist_l.append(num)
+	p_l = copy(num)
+	while True:
+		n_l = []
+		for x in range(0, len(num)):
+			if x + 1 == len(num):
+				n_l.append(abs(p_l[len(num) - 1] - p_l[0]))
+			else:
+				n_l.append(abs(p_l[x + 1] - p_l[x]))
+		if sum(n_l) == 0:
+			print("ZERO")
+			break
+		if n_l in exist_l:
+			print("LOOP")
+			break
+		if n_l not in exist_l:
+			exist_l.append(n_l)
+		p_l = copy(n_l)
