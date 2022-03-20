@@ -1,0 +1,28 @@
+# language python
+while True:
+	input_ = input()
+	if input_ == "0 0":
+		break
+	nump, numt = map(int, input_.split())
+	winner = -1
+	maxp = -1
+	points = list(map(int, input().split()))
+	gt = numt
+	points.reverse()
+	pnp = {}
+	for x in range(0, nump):
+		pnp[x] = 0
+	while numt > 0:
+		np = nump
+		pc = 0
+		numt -= 1
+		while np > 0:
+			pnp[pc] += points.pop()
+			pc += 1
+			np -= 1
+	max_ = -10
+	for x in pnp:
+		if pnp[x] >= max_:
+			max_ = pnp[x]
+			winner = x + 1
+	print(winner)
