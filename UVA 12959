@@ -1,4 +1,5 @@
 # language python
+```
 while True:
 	input_ = input()
 	if input_ == "0 0":
@@ -26,3 +27,5 @@ while True:
 			max_ = pnp[x]
 			winner = x + 1
 	print(winner)
+
+```
