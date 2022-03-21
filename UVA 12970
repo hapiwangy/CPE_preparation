@@ -1,0 +1,28 @@
+count = 1
+while True:
+	input_ = input()
+	if input_ == "0 0 0 0":
+		break
+	v1, d1, v2, d2 = map(int, input_.split())
+	flag = 0
+	speed1 = v1 / d1
+	speed2 = v2 / d2
+	if speed1 > speed2:
+		flag = 1
+	if flag:
+		print(f"Case #{count}: You owe me a beer!")
+	else:
+		print(f"Case #{count}: No beer for the captain.")
+	low = v1 * v2 * 2
+	high = v1 * d2 + v2 * d1
+	sm = low if low < high else high
+	if high % low != 0:
+		for x in range(2, sm):
+			while low % x == 0 and high % x == 0:
+				low //= x
+				high //= x
+		print(f"Avg. arrival time: {high}/{low}")
+	else:
+		print(f"Avg. arrival time: {high//low}")
+	count += 1
+	
