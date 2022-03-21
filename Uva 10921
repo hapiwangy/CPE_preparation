@@ -1,0 +1,27 @@
+s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+l_n = {"P":"7","Q":"7","R":"7","S":"7","W":"9","X":"9","Y":"9","Z":"9","T":"8","U":"8","V":"8"}
+number = 2
+for x in range(0,16):
+	if x % 3 == 0 and x >= 3:
+		number += 1
+	l_n[s[x]] = number
+
+while True:
+	try:
+		input_ = input()
+	except EOFError:
+		break
+	input_ = list(input_)
+	n_in = []
+	Cap = 0
+	hyp = 0
+	for x in input_:
+		if x in l_n:
+			n_in.append(str(l_n[x]))
+			Cap += 1
+		else:
+			n_in.append(x)
+			if x == "-":
+				hyp += 1
+	print("".join(n_in), Cap, hyp)
+	
