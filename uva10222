@@ -1,0 +1,18 @@
+# language python
+# although hand make dictionary can also work, but  is too slow 
+nums = int(input())
+ords = "qwertyuiop[]asdfghjkl;'zxcvbnm,."
+dict_ = {}
+for x in range(len(ords)):
+	if ords[x].isalpha():
+		dict_[ords[x+2]] = ords[x]
+while nums > 0:
+	nums -= 1
+	sentence = list(input().split())
+	new_sentence = []
+	for x in sentence:
+		word = ""
+		for y in x:
+			word += dict_[y.lower()]
+		new_sentence.append(word)
+	print(" ".join(new_sentence))
