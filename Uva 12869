@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long int low, high, low_zeros, high_zeros;
+    while (cin >> low >> high) {
+        if (low == 0 && high == 0)
+            break;
+        low_zeros = 0;
+        high_zeros = 0;
+        low_zeros = low_zeros + (low / 5);
+        high_zeros = high_zeros + (high / 5);
+        cout << high_zeros - low_zeros + 1 << endl;
+    }
+    return 0;
+}
