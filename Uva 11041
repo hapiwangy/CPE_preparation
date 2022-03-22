@@ -1,0 +1,27 @@
+// 由於judge系統限制，我還是在3/22當天開始使用C++進行練習。祝我好運owo
+# include<iostream>
+# include<vector>
+# include<algorithm>
+using namespace std;
+int main(){
+	int testcase,number,home,mid,stay,distance = 0;
+	cin >> testcase;
+	while (testcase > 0){
+		distance = 0;
+		testcase -= 1;
+		cin >> number;
+		vector<int> house;
+		for (int i = 0;i < number;i ++){
+			cin >> home;
+			house.push_back(home);
+		}
+		mid = number % 2 == 0?number / 2:(number - 1) / 2;
+		sort(house.begin(), house.end());
+		stay = house[mid];
+		for (int i = 0;i < number; i++){
+			distance += abs(stay - house[i]);
+		}
+		printf("%d\n", distance);
+	}
+	return 0;
+}
